@@ -1,6 +1,8 @@
 plugins {
+    kotlin("kapt")
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.dagger.hilt.android)
 }
 
 android {
@@ -35,7 +37,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "18"
     }
 
     buildFeatures {
@@ -43,7 +45,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.3.2"
+        kotlinCompilerExtensionVersion = "1.4.7"
     }
 
     packagingOptions {
@@ -51,23 +53,31 @@ android {
             excludes.add("/META-INF/{AL2.0,LGPL2.1}")
         }
     }
+    kotlin {
+        jvmToolchain(8)
+    }
 }
 
 dependencies {
+    implementation(platform(libs.androidx.compose.compose.bom))
+
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.compose.material3.material3)
+    kapt(libs.hilt.android.compiler)
+
     implementation(libs.androidx.ktx)
     implementation(libs.androidx.lifecycle.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.activity.compose)
-    implementation(libs.androidx.compose.ui.ui)
+//    implementation(libs.androidx.compose.ui.ui)
     implementation(libs.androidx.compose.ui.ui.graphics)
     implementation(libs.androidx.compose.ui.ui.tooling.preview)
-    implementation("androidx.compose.material3:material3")
-    implementation("org.jsoup:jsoup:1.14.1")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    implementation(libs.androidx.compose.material3.material3)
+    implementation(libs.org.jsoup.jsoup)
+    testImplementation(libs.junit.junit)
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.espresso.espresso.core)
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-    implementation(platform("androidx.compose:compose-bom:1.2.1"))
 }

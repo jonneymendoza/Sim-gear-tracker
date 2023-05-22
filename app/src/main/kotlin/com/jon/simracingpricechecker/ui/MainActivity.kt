@@ -1,4 +1,4 @@
-package com.jon.simracingpricechecker
+package com.jon.simracingpricechecker.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
