@@ -1,17 +1,21 @@
 package com.jon.simracingpricechecker.ui.screens
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
+import com.jon.simracingpricechecker.ui.SimRacingScreen
 
+class StockListScreen : SimRacingScreen() {
+    override val SCREEN_NAME: String
+        get() = "StockListScreen"
 
-@Composable
-fun Show() {
-    Text("Hello")
-}
+    @Composable
+    override fun Show() {
+        val navController = rememberNavController()
+        Content()
+    }
 
-@Composable
-@Preview
-fun PreviewScreen() {
-    Show()
+    @Composable
+    override fun Content() {
+
+    }
+
 }
