@@ -1,6 +1,7 @@
 package com.jon.simracingpricechecker.ui.screens
 
 import androidx.compose.runtime.Composable
+import androidx.navigation.compose.rememberNavController
 import com.jon.simracingpricechecker.ui.SimRacingScreen
 
 class StockListScreen : SimRacingScreen() {

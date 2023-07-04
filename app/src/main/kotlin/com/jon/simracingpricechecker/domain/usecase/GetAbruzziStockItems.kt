@@ -9,5 +9,4 @@ class GetAbruzziStockItems @Inject constructor(private val abruzziRepository: Ab
 
     suspend operator fun invoke(): Flow<List<Product>> = abruzziRepository.getStockItems()
 
-
 }
